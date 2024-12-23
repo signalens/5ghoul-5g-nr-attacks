@@ -1,6 +1,11 @@
 FROM ubuntu:18.04 as base
 
-USER user
+RUN groupadd -r user &> /dev/null || true && \
+	groupadd -r plugdev &> /dev/null || true && \
+	groupadd -r dialout &> /dev/null || true && \
+	useradd -m -r -g user user && \
+	usermod -a -G plugdev,sudo,dialout user && \
+	echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ADD --chown=user:user 3rd-party/ModemManager/ 3rd-party/ModemManager/
 ADD --chown=user:user 3rd-party/open5gs-core/ 3rd-party/open5gs-core/
