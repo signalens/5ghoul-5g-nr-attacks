@@ -196,7 +196,7 @@ then
 	cd 3rd-party/oai_5g_sa
 	source oaienv
 	cd cmake_targets
-	./build_oai -I -w USRP --gNB --nrUE --ninja --noavx512
+	./build_oai -I -w USRP --gNB --nrUE --ninja --noavx512 --arch-native
 	# TODO: add --noavx512 later
 
 elif [ "$1" == "all" ]
