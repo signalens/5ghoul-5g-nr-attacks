@@ -1,5 +1,17 @@
 FROM ubuntu:18.04 as base
 
+SHELL ["/bin/bash", "-c"]
+
+# Fix timezone for tzdata
+RUN ln -snf /usr/share/zoneinfo/$CONTAINER_TIMEZONE /etc/localtime && echo $CONTAINER_TIMEZONE > /etc/timezone
+
+# Create default non-root user
+RUN apt-get update && apt-get install -y sudo x11-xserver-utils tar zstd python3 git systemd && \
+    sudo rm -rf \
+            /tmp/* \
+            /var/lib/apt/lists/* \
+            /var/tmp/*
+
 RUN groupadd -r user &> /dev/null || true && \
 	groupadd -r plugdev &> /dev/null || true && \
 	groupadd -r dialout &> /dev/null || true && \
