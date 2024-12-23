@@ -28,8 +28,8 @@ USER user
 ENV HOME /home/user
 WORKDIR $HOME
 
-RUN git clone https://github.com/signalens/5ghoul-5g-nr-attacks.git
-RUN cd 5ghoul-5g-nr-attacks &&  sudo chown user:user . && sudo chown user:user 3rd-party && \
+RUN git clone https://github.com/signalens/5ghoul-5g-nr-attacks.git && \
+	cd 5ghoul-5g-nr-attacks &&  sudo chown user:user . && sudo chown user:user 3rd-party && \
 	./requirements.sh 5g && sudo find . -type f -name '*.o' -delete && \
 	sudo find . -type f -name '*.a' -delete && \
     	sudo rm -rf ~/.git-credentials \
