@@ -167,7 +167,7 @@ then
 		#sudo ldconfig
 		#cd ../
 
-    		apt install -y libczmq-dev
+    		apt install -y libczmq-dev libzmq3-dev libzmq5
 
 		# libjson-c
 		git clone https://github.com/json-c/json-c.git --depth=1 || true
