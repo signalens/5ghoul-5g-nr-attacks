@@ -158,14 +158,16 @@ then
 		#cd ../
 
 		# libczmq
-		git clone https://github.com/zeromq/czmq.git --depth=1 || true
-		cd czmq
-		./autogen.sh
-		./configure
-		make -j
-		sudo make install
-		sudo ldconfig
-		cd ../
+		#git clone https://github.com/zeromq/czmq.git --depth=1 || true
+		#cd czmq
+		#./autogen.sh
+		#./configure
+		#make -j
+		#sudo make install
+		#sudo ldconfig
+		#cd ../
+
+    		apt install -y libczmq-dev
 
 		# libjson-c
 		git clone https://github.com/json-c/json-c.git --depth=1 || true
