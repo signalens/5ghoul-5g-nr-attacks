@@ -152,19 +152,19 @@ then
 	if [ "$2" == "dev" ]
 	then
 		TAG_NAME=${CONTAINER_REPO}:dev-$ARCH
-		sudo docker build --progress=plain --compress -t $TAG_NAME --secret id=cred,src=.env \
+		sudo docker build --progress=plain --compress -t $TAG_NAME \
 		--secret id=my_env,src=.env .
 
 	elif [ "$2" == "release" ]
 	then
 		TAG_NAME=${CONTAINER_REPO}:release-$ARCH
-		sudo docker build --progress=plain --compress -t $TAG_NAME --secret id=cred,src=.env \
+		sudo docker build --progress=plain --compress -t $TAG_NAME \
 		-f scripts/docker_release.docker .
 
 	elif [ "$2" == "release-desktop" ]
 	then
 		TAG_NAME=${CONTAINER_REPO}:release-desktop-$ARCH
-		sudo docker build --progress=plain --compress -t $TAG_NAME --secret id=cred,src=.env \
+		sudo docker build --progress=plain --compress -t $TAG_NAME \
 		-f scripts/docker_release_desktop.docker .
 
 	elif [ "$2" == "release-4g" ]
@@ -172,7 +172,7 @@ then
 		TAG_NAME=${CONTAINER_REPO}:release-4g-$ARCH
 		# Clone 3rd-party tools and apply patches
 		./scripts/apply_patches.sh 3rd-party
-		sudo docker build --progress=plain --compress -t $TAG_NAME --secret id=cred,src=.env \
+		sudo docker build --progress=plain --compress -t $TAG_NAME \
 		--build-arg ARCH=$(uname -m) \
 		-f scripts/docker_release_4g.docker .
 
@@ -181,7 +181,7 @@ then
 		TAG_NAME=${CONTAINER_REPO}:release-5g-$ARCH
 		# Clone 3rd-party tools and apply patches
 		./scripts/apply_patches.sh 3rd-party
-		sudo docker build --progress=plain --compress -t $TAG_NAME --secret id=cred,src=.env \
+		sudo docker build --progress=plain --compress -t $TAG_NAME \
 		--build-arg ARCH=$(uname -m) \
 		-f scripts/docker_release_5g.docker .
 
