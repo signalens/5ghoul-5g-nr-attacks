@@ -12,8 +12,7 @@ ADD --chown=user:user 3rd-party/open5gs-core/ 3rd-party/open5gs-core/
 ADD --chown=user:user 3rd-party/oai_5g_sa/ 3rd-party/oai_5g_sa/
 ADD --chown=user:user 3rd-party/*.patch 3rd-party/
 
-RUN --mount=type=secret,id=cred,mode=0666 source /run/secrets/cred && \
-	sudo chown user:user . && sudo chown user:user 3rd-party && \
+RUN sudo chown user:user . && sudo chown user:user 3rd-party && \
 	./requirements.sh 5g && sudo find . -type f -name '*.o' -delete && \
 	sudo find . -type f -name '*.a' -delete && \
     sudo rm -rf \
