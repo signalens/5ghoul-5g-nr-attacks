@@ -148,14 +148,14 @@ then
 
 		# Build and install misc requirements (TODO: remove)
 		# libzmq
-		git clone https://github.com/zeromq/libzmq.git --depth=1 || true
-		cd libzmq
-		./autogen.sh
-		./configure
-		make -j
-		sudo make install
-		sudo ldconfig
-		cd ../
+		#git clone https://github.com/zeromq/libzmq.git --depth=1 || true
+		#cd libzmq
+		#./autogen.sh
+		#./configure
+		#make -j
+		#sudo make install
+		#sudo ldconfig
+		#cd ../
 
 		# libczmq
 		git clone https://github.com/zeromq/czmq.git --depth=1 || true
