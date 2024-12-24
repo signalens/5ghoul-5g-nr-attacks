@@ -198,7 +198,7 @@ then
 	source oaienv
 	cd cmake_targets
  	sed -i '/update-alternatives/d' tools/build_helper
-	./build_oai -I -w USRP --gNB --nrUE --ninja --noavx512 --arch-native
+	./build_oai -I -w USRP --gNB --nrUE --ninja --noavx512
 	# TODO: add --noavx512 later
 
 elif [ "$1" == "all" ]
