@@ -194,12 +194,12 @@ elif [ "$1" == "5g" ]
 then
 	./requirements.sh 3gpp
 	cd 3rd-party/oai_5g_sa
- 	cp ../CMakeLists.txt .
+ 	sudo cp ../CMakeLists.txt .
 	source oaienv
 	cd cmake_targets
  	if [ "$(uname -m)" == "aarch64" ]
   	then
-  		sed -i '/update-alternatives/d' tools/build_helper
+  		sudo sed -i '/update-alternatives/d' tools/build_helper
    	fi
  	./build_oai -I -w USRP --gNB --nrUE --ninja --noavx512
 	# TODO: add --noavx512 later
