@@ -194,6 +194,7 @@ elif [ "$1" == "5g" ]
 then
 	./requirements.sh 3gpp
 	cd 3rd-party/oai_5g_sa
+ 	sudo rm openair1/PHY/CODING/nrLDPC_decoder/nrLDPC_tools/generator_bnProc/bnProc_gen_BG1_avx2.c
  	sudo cp ../CMakeLists.txt .
 	source oaienv
 	cd cmake_targets
