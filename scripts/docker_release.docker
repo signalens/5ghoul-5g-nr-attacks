@@ -31,8 +31,7 @@ ENV HOME /home/user
 WORKDIR $HOME
 
 ADD ./requirements.sh $HOME
-RUN --mount=type=secret,id=cred,mode=0666 source /run/secrets/cred && \
-	./requirements.sh && rm ./requirements.sh && sudo systemctl mask console-getty.service && \
+RUN ./requirements.sh && rm ./requirements.sh && sudo systemctl mask console-getty.service && \
 	sudo systemctl mask system-getty.slice && sudo systemctl mask getty@tty1.service && \
 	sudo systemctl mask getty@tty2.service && sudo systemctl mask getty@tty3.service && \
 	sudo systemctl mask getty@tty4.service && sudo systemctl mask getty@tty5.service && \
