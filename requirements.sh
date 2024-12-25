@@ -148,26 +148,26 @@ then
 
 		# Build and install misc requirements (TODO: remove)
 		# libzmq
-		#git clone https://github.com/zeromq/libzmq.git --depth=1 || true
-		#cd libzmq
-		#./autogen.sh
-		#./configure
-		#make -j
-		#sudo make install
-		#sudo ldconfig
-		#cd ../
+		git clone https://github.com/zeromq/libzmq.git --depth=1 || true
+		cd libzmq
+		./autogen.sh
+		./configure
+		make -j
+		sudo make install
+		sudo ldconfig
+		cd ../
 
 		# libczmq
-		#git clone https://github.com/zeromq/czmq.git --depth=1 || true
-		#cd czmq
-		#./autogen.sh
-		#./configure
-		#make -j
-		#sudo make install
-		#sudo ldconfig
-		#cd ../
+		git clone https://github.com/zeromq/czmq.git --depth=1 || true
+		cd czmq
+		./autogen.sh
+		./configure
+		make -j
+		sudo make install
+		sudo ldconfig
+		cd ../
 
-    		sudo apt install -y libczmq-dev libzmq3-dev libzmq5
+    	#sudo apt install -y libczmq-dev libzmq3-dev libzmq5
 
 		# libjson-c
 		git clone https://github.com/json-c/json-c.git --depth=1 || true
