@@ -118,7 +118,7 @@ start_container_release(){
 	touch /home/$USER/.Xauthority # ensure we have xauthority file	
 	sudo xhost local:root &> /dev/null # allow xhost on host root
 	mkdir -p $(pwd)/logs
-	sudo docker run  --platform linux/amd64 -ti -d --privileged --name ${CONTAINER_NAME}-$1 \
+	sudo docker run --platform linux/$ARCH -ti -d --privileged --name ${CONTAINER_NAME}-$1 \
 	-e DISPLAY=$DISPLAY \
 	--network=host \
 	--user=root \
