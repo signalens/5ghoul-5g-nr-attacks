@@ -173,7 +173,7 @@ then
 		# Clone 3rd-party tools and apply patches
 		./scripts/apply_patches.sh 3rd-party
 		sudo docker build --progress=plain --compress -t $TAG_NAME \
-		--build-arg ARCH=$(uname -m) \
+		--build-arg ARCH=$ARCH \
 		-f scripts/docker_release_4g.docker .
 
 	elif [ "$2" == "release-5g" ]
@@ -182,7 +182,7 @@ then
 		# Clone 3rd-party tools and apply patches
 		./scripts/apply_patches.sh 3rd-party
 		sudo docker build --progress=plain --compress -t $TAG_NAME \
-		--build-arg ARCH=$(uname -m) \
+		--build-arg ARCH=$ARCH \
 		-f scripts/docker_release_5g.docker .
 
 	else
