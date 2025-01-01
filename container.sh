@@ -181,7 +181,7 @@ then
 		TAG_NAME=${CONTAINER_REPO}:release-5g-$ARCH
 		# Clone 3rd-party tools and apply patches
 		./scripts/apply_patches.sh 3rd-party
-		sudo docker build --progress=plain --compress -t $TAG_NAME \
+		sudo docker build --platform linux/$ARCH --progress=plain --compress -t $TAG_NAME \
 		--build-arg ARCH=$ARCH \
 		-f scripts/docker_release_5g.docker .
 
